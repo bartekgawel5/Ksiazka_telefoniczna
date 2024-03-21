@@ -21,8 +21,14 @@ function App() {
   const addPerson = (data) => {
     const newPeople = [...people, data];
     setPeople(newPeople);
-    console.log({ newPeople });
-    console.log({ people });
+    //console.log({ newPeople });
+    //console.log({ people });
+  };
+
+  const deletePerson = (telefon) => {
+    //console.log({ telefon });
+    const updatedPeople = people.filter((people) => people.tel !== telefon);
+    setPeople(updatedPeople);
   };
 
   return (
@@ -39,6 +45,7 @@ function App() {
           Name={person.Name}
           tel={person.tel}
           city={person.city}
+          onDelete={deletePerson}
         />
       ))}
     </>

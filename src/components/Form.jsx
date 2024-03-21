@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export function Form(onAddPerson) {
+export function Form({ onAddPerson }) {
   const [Name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [city, setCity] = useState("");
