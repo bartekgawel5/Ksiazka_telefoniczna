@@ -4,10 +4,11 @@ import { GetTel } from "./GetTel";
 import { GetCity } from "./GetCity";
 import { useState } from "react";
 
-export function GetAllInfo({ Name, tel, city, onDelete }) {
-  let stateArray = useState(false);
-  let isExpanded = stateArray[0];
-  let setIsExpanded = stateArray[1];
+export function GetAllInfo({ Name, tel, city, onDelete, onEditDataPerson }) {
+  let [isExpanded, setIsExpanded] = useState(false);
+  const [editName, setEditName] = useState(Name);
+  const [edittel, setEditTel] = useState(tel);
+  const [editcity, setEditCity] = useState(city);
 
   const showbutton = (
     <button
@@ -23,12 +24,19 @@ export function GetAllInfo({ Name, tel, city, onDelete }) {
     onDelete(tel);
   };
 
+  const handleEdit = () => {
+    onEditDataPerson({ editName, editcity, edittel, tel });
+  };
+  {
+    /* onEditDataPerson({ editName, editcity, edittel, tel }) */
+  }
   return (
     <>
       <h2>
         <GetName Name={Name} />
         &nbsp;&nbsp;{showbutton}
         <button onClick={handleDelete}>Usuń</button>
+        <button onClick={handleEdit}>Edytuj</button>
       </h2>
       {isExpanded && (
         <>
@@ -42,8 +50,44 @@ export function GetAllInfo({ Name, tel, city, onDelete }) {
               <GetCity city={city} />
             </h3>
           )}
+          <input
+            type="text"
+            id="fname"
+            name="Name"
+            placeholder="Imie"
+            defaultValue={Name}
+            onChange={(e) => {
+              setEditName(e.target.value);
+              console.log(e.target.value);
+            }}
+          />
+          <br></br>
+          <input
+            type="text"
+            id="fcity"
+            name="city"
+            placeholder="Miasto"
+            defaultValue={city}
+            onChange={(e) => {
+              setEditCity(e.target.value);
+              console.log(e.target.value);
+            }}
+          />
+          <br />
+          <input
+            type="tel"
+            id="ftel"
+            name="tel"
+            placeholder="Telefon"
+            defaultValue={tel}
+            onChange={(e) => {
+              setEditTel(e.target.value);
+              console.log(e.target.value);
+            }}
+          />
         </>
       )}
+
       <hr></hr>
     </>
   );

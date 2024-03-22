@@ -21,15 +21,43 @@ function App() {
   const addPerson = (data) => {
     const newPeople = [...people, data];
     setPeople(newPeople);
-    //console.log({ newPeople });
-    //console.log({ people });
+    setisFormShown(false);
+    console.log({ data });
   };
 
   const deletePerson = (telefon) => {
-    //console.log({ telefon });
     const updatedPeople = people.filter((people) => people.tel !== telefon);
     setPeople(updatedPeople);
   };
+
+  // useEffect(() => {
+  //   console.log(edittedPersonId);
+  // }, [edittedPersonId]);
+
+  const funeditDataPerson = (editdata) => {
+    console.log(editdata);
+    setPeople((actualpeople) => {
+      const updatedPeople = actualpeople.map((person) => {
+        if (person.tel === editdata.tel) {
+          person.Name = editdata.editName;
+          person.city = editdata.editcity;
+          person.tel = editdata.edittel;
+          return person;
+        }
+        return person;
+      });
+      return updatedPeople;
+    });
+  };
+  // const editPerson = (idTel) => {
+  //   setEdittedPersonId(idTel);
+  //   console.log({ ideditTel, idTel });
+  //   //funEditPerson(editDataPerson, ideditTel);
+  // };
+  //DataPer, IdTel
+  //function funEditPerson() {
+  //  console.log("nic");
+  //}
 
   return (
     <>
@@ -39,15 +67,18 @@ function App() {
       ) : (
         <button onClick={() => setisFormShown(true)}>DODAJ</button>
       )}
-      {people.map((person) => (
-        <GetAllInfo
-          key={person.tel}
-          Name={person.Name}
-          tel={person.tel}
-          city={person.city}
-          onDelete={deletePerson}
-        />
-      ))}
+      <>
+        {people.map((person) => (
+          <GetAllInfo
+            key={person.tel}
+            Name={person.Name}
+            tel={person.tel}
+            city={person.city}
+            onDelete={deletePerson}
+            onEditDataPerson={funeditDataPerson}
+          />
+        ))}
+      </>
     </>
   );
 }
