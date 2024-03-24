@@ -2,6 +2,7 @@
 import ReactDOM from "react-dom/client";
 // eslint-disable-next-line react-refresh/only-export-components
 import App from "./App";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 

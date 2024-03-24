@@ -1,6 +1,7 @@
-import { GetAllInfo } from "./components/PersonInfo";
-import { Form } from "./components/Form";
 import { useState } from "react";
+import "./App.css";
+import { Form } from "./components/Form";
+import { GetAllInfo } from "./components/PersonInfo";
 const initialPeople = [
   {
     Name: "Kacper",
@@ -49,25 +50,26 @@ function App() {
       return updatedPeople;
     });
   };
-  // const editPerson = (idTel) => {
-  //   setEdittedPersonId(idTel);
-  //   console.log({ ideditTel, idTel });
-  //   //funEditPerson(editDataPerson, ideditTel);
-  // };
-  //DataPer, IdTel
-  //function funEditPerson() {
-  //  console.log("nic");
-  //}
 
   return (
-    <>
-      <h1>Lista Kontaktow</h1>
+    <div>
+      <h1>LISTA KONTAKTÓW</h1>
       {isFormShown ? (
-        <Form onAddPerson={addPerson} />
+        <>
+          <Form onAddPerson={addPerson} />
+          <button
+            className="addButtonSchowaj"
+            onClick={() => setisFormShown(false)}
+          >
+            Schowaj
+          </button>
+        </>
       ) : (
-        <button onClick={() => setisFormShown(true)}>DODAJ</button>
+        <button className="addButton" onClick={() => setisFormShown(true)}>
+          DODAJ
+        </button>
       )}
-      <>
+      <ul>
         {people.map((person) => (
           <GetAllInfo
             key={person.tel}
@@ -78,8 +80,8 @@ function App() {
             onEditDataPerson={funeditDataPerson}
           />
         ))}
-      </>
-    </>
+      </ul>
+    </div>
   );
 }
 

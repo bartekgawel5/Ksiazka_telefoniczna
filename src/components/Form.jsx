@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-
+import "./Form.css";
 export function Form({ onAddPerson }) {
   const [Name, setName] = useState("");
   const [tel, setTel] = useState("");
@@ -15,6 +15,7 @@ export function Form({ onAddPerson }) {
     >
       <div>
         <input
+          className="inputData"
           defaultValue={Name}
           onChange={(e) => {
             setName(e.target.value);
@@ -26,6 +27,7 @@ export function Form({ onAddPerson }) {
       </div>
       <div>
         <input
+          className="inputData"
           type="tel"
           defaultValue={tel}
           onChange={(e) => {
@@ -37,6 +39,7 @@ export function Form({ onAddPerson }) {
       </div>
       <div>
         <input
+          className="inputData"
           type="text"
           defaultValue={city}
           onChange={(e) => {
@@ -47,7 +50,10 @@ export function Form({ onAddPerson }) {
         />
       </div>
       <div>
-        <button disabled={Name.length === 0 || tel.length === 0}>
+        <button
+          className="addButton"
+          disabled={Name.length === 0 || tel.length === 0}
+        >
           Dodaj kontakt
         </button>
       </div>

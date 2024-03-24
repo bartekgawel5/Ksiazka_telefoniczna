@@ -1,0 +1,43 @@
+li {
+  background-image: linear-gradient(144deg, #c09ed8, #d3d2d7 50%, #78b1b5);
+  border: solid 1px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 12px 0 24px;
+}
+
+li.active {
+  border-color: peru;
+}
+
+input.editInput {
+  width: 50%;
+  border-color: brown;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+button.buttonPerson {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  color: #ffffff;
+  /* display: flex; */
+  font-family: Phantomsans, sans-serif;
+  font-size: 100%;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 20px;
+  padding: 1% 5% 1% 5%;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-right: 5px;
+}
