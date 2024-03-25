@@ -29,9 +29,6 @@ export function GetAllInfo({ Name, tel, city, onDelete, onEditDataPerson }) {
   const handleEdit = () => {
     onEditDataPerson({ editName, editcity, edittel, tel });
   };
-  {
-    /* onEditDataPerson({ editName, editcity, edittel, tel }) */
-  }
   return (
     <li className={isExpanded ? "active" : ""}>
       <h2>
