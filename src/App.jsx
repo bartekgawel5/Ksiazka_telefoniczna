@@ -31,10 +31,6 @@ function App() {
     setPeople(updatedPeople);
   };
 
-  // useEffect(() => {
-  //   console.log(edittedPersonId);
-  // }, [edittedPersonId]);
-
   const funeditDataPerson = (editdata) => {
     console.log(editdata);
     setPeople((actualpeople) => {

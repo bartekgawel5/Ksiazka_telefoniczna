@@ -52,7 +52,7 @@ export function GetAllInfo({ Name, tel, city, onDelete, onEditDataPerson }) {
             Telefon:
             <GetTel tel={tel} />
           </h3>
-          {city && ( //jesli personProps.city czyli zmienna miasta w liscie kontaktow jest 1 czyli inna niz false null czy undefined to zrobi to co jest za znakiem
+          {city && (
             <h3>
               Miasto:
               <GetCity city={city} />

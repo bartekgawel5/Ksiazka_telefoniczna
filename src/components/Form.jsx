@@ -22,7 +22,7 @@ export function Form({ onAddPerson }) {
           }}
           type="text"
           name="Name"
-          placeholder="imię"
+          placeholder="IMIĘ"
         />
       </div>
       <div>
@@ -34,7 +34,7 @@ export function Form({ onAddPerson }) {
             setTel(e.target.value);
           }}
           name="tel"
-          placeholder="numer"
+          placeholder="NUMER TELEFONU"
         />
       </div>
       <div>
@@ -46,7 +46,7 @@ export function Form({ onAddPerson }) {
             setCity(e.target.value);
           }}
           name="city"
-          placeholder="miasto"
+          placeholder="MIASTO"
         />
       </div>
       <div>
